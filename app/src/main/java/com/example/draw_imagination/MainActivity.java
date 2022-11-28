@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TabActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TabHost;
+import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 @SuppressWarnings("deprecation")
 //public class MainActivity extends AppCompatActivity {
@@ -30,5 +34,27 @@ public class MainActivity extends TabActivity {
         tabHost.addTab(tabSpec3);
 
         tabHost.setCurrentTab(0);
+
+        Button G_btnPrev, G_btnNext;
+        final ViewFlipper G_viewFlipper;
+
+        G_btnPrev = (Button) findViewById(R.id.G_btnPrev);
+        G_btnNext = (Button) findViewById(R.id.G_btnNext);
+        G_viewFlipper = (ViewFlipper) findViewById(R.id.G_viewFlipper);
+
+        G_btnPrev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                G_viewFlipper.showPrevious();
+            }
+        });
+
+        G_btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                G_viewFlipper.showNext();
+            }
+        });
+
     }
 }
