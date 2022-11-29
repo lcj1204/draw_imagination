@@ -12,6 +12,7 @@ import android.widget.ViewFlipper;
 
 @SuppressWarnings("deprecation")
 //public class MainActivity extends AppCompatActivity {
+//chang 브런치 테스트
 public class MainActivity extends TabActivity {
 
     @Override
