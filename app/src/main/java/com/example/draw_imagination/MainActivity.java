@@ -1,59 +1,55 @@
 package com.example.draw_imagination;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import android.app.TabActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TabHost;
-import android.widget.TextView;
-import android.widget.ViewFlipper;
+//import android.support.design.widget.TabLayout;
 
-@SuppressWarnings("deprecation")
-//public class MainActivity extends AppCompatActivity {
-//chang 브런치 테스트
-public class MainActivity extends TabActivity {
+import com.google.android.material.tabs.TabLayout;
+
+public class MainActivity extends AppCompatActivity {
+
+    Fragment fragment_generation, fragment_variation, fragment_gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TabHost tabHost = getTabHost();
+        fragment_generation = new Fragment_generation();
+        fragment_variation = new Fragment_variation();
+        fragment_gallery = new Fragment_gallery();
 
-        TabHost.TabSpec tabSpec1 = tabHost.newTabSpec("GENERATION").setIndicator("생성");
-        tabSpec1.setContent(R.id.tab1);
-        tabHost.addTab(tabSpec1);
+        getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment_generation).commit();
 
-        TabHost.TabSpec tabSpec2 = tabHost.newTabSpec("VARIATION").setIndicator("변환");
-        tabSpec2.setContent(R.id.tab2);
-        tabHost.addTab(tabSpec2);
+        TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
 
-        TabHost.TabSpec tabSpec3 = tabHost.newTabSpec("GALLERY").setIndicator("갤러리");
-        tabSpec3.setContent(R.id.tab3);
-        tabHost.addTab(tabSpec3);
-
-        tabHost.setCurrentTab(0);
-
-        Button G_btnPrev, G_btnNext;
-        final ViewFlipper G_viewFlipper;
-
-        G_btnPrev = (Button) findViewById(R.id.G_btnPrev);
-        G_btnNext = (Button) findViewById(R.id.G_btnNext);
-        G_viewFlipper = (ViewFlipper) findViewById(R.id.G_viewFlipper);
-
-        G_btnPrev.setOnClickListener(new View.OnClickListener() {
+        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onClick(View view) {
-                G_viewFlipper.showPrevious();
+            public void onTabSelected(TabLayout.Tab tab) {
+
+                int position = tab.getPosition();
+
+                Fragment selected = null;
+                if(position == 0){
+                    selected = fragment_generation;
+                }else if (position == 1){
+                    selected = fragment_variation;
+                }else if (position == 2){
+                    selected = fragment_gallery;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame, selected).commit();
             }
-        });
 
-        G_btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                G_viewFlipper.showNext();
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
 
