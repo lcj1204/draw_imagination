@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 
-public class url_upload extends AppCompatActivity {
+public class Upload_url extends AppCompatActivity {
 
     //url 이미지 test
     // https://wonpaper.tistory.com/207
