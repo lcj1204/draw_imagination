@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 public class url_upload extends AppCompatActivity {
 
     //url 이미지 test
+    // https://wonpaper.tistory.com/207
     private ImageView imageView1;
 
     @Override
