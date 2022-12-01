@@ -1,141 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@android:id/tabhost">
+    android:id="@android:id/tabhost"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TabWidget
-            android:id="@android:id/tabs"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="이미지를 업로드하세요."
+        android:minHeight="48dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="변경하고 싶은 스타일을 입력하세요."
+        android:minHeight="48dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="만들 이미지 수" />
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:gravity="center"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:minHeight="48dp"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="만들기"
+        android:layout_margin="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/G_btnPrev"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:backgroundTint="@color/white"
+            android:text="p"
+            android:textSize="30dp"
+            android:textColor="@color/black"/>
+        <ViewFlipper
+            android:id="@+id/G_viewFlipper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </TabWidget>
-        <FrameLayout
-            android:id="@android:id/tabcontent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:id="@+id/tab1"
-                android:orientation="vertical"
+            android:layout_height="350dp"
+            android:layout_weight="6">
+            <ImageView
+                android:id="@+id/Gen_image1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_horizontal">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:hint="만들고 싶은 이미지를 입력해보세요."
-                    android:minHeight="48dp" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="right">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="만들 이미지 수" />
-                    <EditText
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:text="1"
-                        android:gravity="center"
-                        android:layout_marginRight="30dp"
-                        android:layout_marginLeft="30dp"
-                        android:minHeight="48dp"/>
-                </LinearLayout>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="만들기"
-                    android:layout_margin="10dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <Button
-                        android:id="@+id/G_btnPrev"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:backgroundTint="@color/white"
-                        android:text="p"
-                        android:textSize="30dp"
-                        android:textColor="@color/black"/>
-                    <ViewFlipper
-                        android:id="@+id/G_viewFlipper"
-                        android:layout_width="match_parent"
-                        android:layout_height="350dp"
-                        android:layout_weight="6">
-                        <ImageView
-                            android:id="@+id/Gen_image1"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:src="@drawable/pic1"/>
-                        <ImageView
-                            android:id="@+id/Gen_image2"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:src="@drawable/pic2"/>
-                        <ImageView
-                            android:id="@+id/Gen_image3"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:src="@drawable/pic3"/>
-                    </ViewFlipper>
-                    <Button
-                        android:id="@+id/G_btnNext"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:backgroundTint="@color/white"
-                        android:text="n"
-                        android:textSize="30dp"
-                        android:textColor="@color/black"/>
-                </LinearLayout>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="이미지 저장"
-                    android:layout_margin="10dp"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="10dp"
-                    android:text="가이드" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/tab2"
-                android:background="#f0f000"
-                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:src="@drawable/pic1"/>
+            <ImageView
+                android:id="@+id/Gen_image2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/tab3"
-                android:background="#f000ff"
-                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/pic2"/>
+            <ImageView
+                android:id="@+id/Gen_image3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </LinearLayout>
-
-        </FrameLayout>
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/pic3"/>
+        </ViewFlipper>
+        <Button
+            android:id="@+id/G_btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:backgroundTint="@color/white"
+            android:text="n"
+            android:textSize="30dp"
+            android:textColor="@color/black"/>
     </LinearLayout>
 
-</TabHost>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이미지 저장"
+        android:layout_margin="10dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dp"
+        android:text="가이드" />
+
+</LinearLayout>
