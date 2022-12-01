@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:id="@android:id/tabhost"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center|top">
 
     <EditText
         android:layout_width="match_parent"
@@ -15,29 +16,42 @@
         android:layout_marginRight="30dp"
         android:hint="이미지를 업로드하세요."
         android:minHeight="48dp" />
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:hint="변경하고 싶은 스타일을 입력하세요."
-        android:minHeight="48dp" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="이미지 첨부"
+            android:minHeight="48dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="선택된 파일 없음."/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="right">
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="만들 이미지 수" />
+            android:text="생성 이미지 수"
+            android:textSize="20dp"/>
         <EditText
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="1"
             android:gravity="center"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="15dp"
             android:minHeight="48dp"/>
     </LinearLayout>
     <Button
@@ -61,7 +75,7 @@
         <ViewFlipper
             android:id="@+id/G_viewFlipper"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="300dp"
             android:layout_weight="6">
             <ImageView
                 android:id="@+id/Gen_image1"
