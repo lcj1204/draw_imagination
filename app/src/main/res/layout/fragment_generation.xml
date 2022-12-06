@@ -9,13 +9,32 @@
     android:orientation="vertical"
     android:gravity="center|top">
 
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:hint="만들고 싶은 이미지를 입력해보세요."
-        android:minHeight="48dp" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="생성하고 싶은 이미지를 입력하세요."
+            android:minHeight="48dp" />
+        <ImageButton
+            android:id="@+id/btn_translate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_translate"
+            android:backgroundTint="#FFFFFF"
+            android:minHeight="48dp" />
+        <ImageButton
+            android:id="@+id/btn_mic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_mic"
+            android:backgroundTint="#FFFFFF"
+            android:minHeight="48dp" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,6 +55,7 @@
             android:minHeight="48dp"/>
     </LinearLayout>
     <Button
+        android:id="@+id/btn_gen_make"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="만들기"
@@ -53,30 +73,13 @@
             android:text="p"
             android:textSize="30dp"
             android:textColor="@color/black"/>
-        <ViewFlipper
-            android:id="@+id/G_viewFlipper"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_weight="6">
-            <ImageView
-                android:id="@+id/Gen_image1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:src="@drawable/pic1"/>
-            <ImageView
-                android:id="@+id/Gen_image2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:src="@drawable/pic2"/>
-            <ImageView
-                android:id="@+id/Gen_image3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:src="@drawable/pic3"/>
-        </ViewFlipper>
+
+        <ImageView
+            android:id="@+id/gen_image1"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"/>
+
         <Button
             android:id="@+id/G_btnNext"
             android:layout_width="wrap_content"
@@ -89,11 +92,13 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_gen_download"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이미지 저장"
         android:layout_margin="10dp"/>
     <Button
+        android:id="@+id/btn_gen_guide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"

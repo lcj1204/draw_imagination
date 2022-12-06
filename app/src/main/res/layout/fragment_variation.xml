@@ -9,27 +9,49 @@
     android:orientation="vertical"
     android:gravity="center|top">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:hint="이미지를 업로드하세요."
-        android:minHeight="48dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="변경하고싶은 스타일을 입력하세요."
+            android:minHeight="48dp" />
+        <ImageButton
+            android:id="@+id/btn_translate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_translate"
+            android:backgroundTint="#FFFFFF"
+            android:minHeight="48dp" />
+        <ImageButton
+            android:id="@+id/btn_mic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_mic"
+            android:backgroundTint="#FFFFFF"
+            android:minHeight="48dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal"
         android:gravity="center_vertical">
         <Button
+            android:id="@+id/btn_uploadImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="이미지 첨부"
+            android:text="이미지 선택"
             android:minHeight="48dp" />
         <TextView
+            android:id="@+id/text_uploadImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -39,8 +61,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,6 +77,7 @@
             android:minHeight="48dp"/>
     </LinearLayout>
     <Button
+        android:id="@+id/btn_gen_make"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="만들기"
@@ -78,19 +101,19 @@
             android:layout_height="300dp"
             android:layout_weight="6">
             <ImageView
-                android:id="@+id/Gen_image1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/val_image1"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_gravity="center"
                 android:src="@drawable/pic1"/>
             <ImageView
-                android:id="@+id/Gen_image2"
+                android:id="@+id/val_image2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:src="@drawable/pic2"/>
             <ImageView
-                android:id="@+id/Gen_image3"
+                android:id="@+id/val_image3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -108,6 +131,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_gen_download"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이미지 저장"
