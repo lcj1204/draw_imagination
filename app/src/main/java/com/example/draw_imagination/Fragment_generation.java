@@ -1,20 +1,72 @@
 package com.example.draw_imagination;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+
 public class Fragment_generation extends Fragment {
+
+    Button btn_gen_make;
+    Button btn_gen_download;
+    Button btn_gen_guide;
+
+    ImageView result_image;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_generation, container, false);
+
+        // 만들기 버튼
+        btn_gen_make = (Button) view.findViewById(R.id.btn_gen_make);
+        result_image = (ImageView) view.findViewById(R.id.gen_image1);
+        btn_gen_make.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 만들기 기능
+                String imageStr = "https://cdn.openai.com/dall-e-2/demos/text2im/astronaut/horse/photo/0.jpg";
+
+                GlideApp
+                        .with(Fragment_generation.this)
+                        .load(imageStr)
+                        .into(result_image);
+            }
+        });
+
+        // 이미지 저장 버튼
+        btn_gen_download = (Button) view.findViewById(R.id.btn_gen_download);
+        btn_gen_download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Image_Download image_download = new Image_Download();
+                    image_download.saveImage(result_image);
+                    Toast.makeText(getActivity(), "저장 완료", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(), "저장 실패", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // 가이드 버튼
+        btn_gen_guide = (Button) view.findViewById(R.id.btn_gen_guide);
+        btn_gen_guide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         return view;
     }
