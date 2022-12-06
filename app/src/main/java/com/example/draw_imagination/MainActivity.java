@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fragment_generation = new Fragment_generation();
-        fragment_variation = new Fragment_variation();
-        fragment_gallery = new Fragment_gallery();
+//        fragment_variation = new Fragment_variation();
+//        fragment_gallery = new Fragment_gallery();
 
         getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment_generation).commit();
 
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
                 int position = tab.getPosition();
 
-                Fragment selected = null;
+                /*Fragment selected = null;
                 if(position == 0){
                     selected = fragment_generation;
                 }else if (position == 1){
@@ -39,7 +39,32 @@ public class MainActivity extends AppCompatActivity {
                 }else if (position == 2){
                     selected = fragment_gallery;
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, selected).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame, selected).commit();*/
+                if(position == 0){
+                    if (fragment_generation == null) {
+                        fragment_generation = new Fragment_generation();
+                        getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment_generation).commit();
+                    }
+                    if (fragment_generation != null) getSupportFragmentManager().beginTransaction().show(fragment_generation).commit();
+                    if (fragment_variation != null) getSupportFragmentManager().beginTransaction().hide(fragment_variation).commit();
+                    if (fragment_gallery != null) getSupportFragmentManager().beginTransaction().hide(fragment_gallery).commit();
+                }else if (position == 1){
+                    if (fragment_variation == null) {
+                        fragment_variation = new Fragment_variation();
+                        getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment_variation).commit();
+                    }
+                    if (fragment_generation != null) getSupportFragmentManager().beginTransaction().hide(fragment_generation).commit();
+                    if (fragment_variation != null) getSupportFragmentManager().beginTransaction().show(fragment_variation).commit();
+                    if (fragment_gallery != null) getSupportFragmentManager().beginTransaction().hide(fragment_gallery).commit();
+                }else if (position == 2){
+                    if (fragment_gallery == null) {
+                        fragment_gallery = new Fragment_gallery();
+                        getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment_gallery).commit();
+                    }
+                    if (fragment_generation != null) getSupportFragmentManager().beginTransaction().hide(fragment_generation).commit();
+                    if (fragment_variation != null) getSupportFragmentManager().beginTransaction().hide(fragment_variation).commit();
+                    if (fragment_gallery != null) getSupportFragmentManager().beginTransaction().show(fragment_gallery).commit();
+                }
             }
 
             @Override
