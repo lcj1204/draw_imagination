@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/draw-48px.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/ic_copy.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_gener.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/ic_mic.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/ic_translate.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/ic_vari.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/shutDown.xml" value="0.1355" />
+        <entry key="app/src/main/res/layout/activity_fragment_gellary.xml" value="0.29739583333333336" />
+        <entry key="app/src/main/res/layout/activity_fragment_generation.xml" value="0.29739583333333336" />
+        <entry key="app/src/main/res/layout/activity_fragment_variation.xml" value="0.29739583333333336" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25514068603515627" />
+        <entry key="app/src/main/res/layout/activity_main1.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/activity_main_url.xml" value="0.17239583333333333" />
+        <entry key="app/src/main/res/layout/activity_main_voice.xml" value="0.3257112143696218" />
+        <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.28970336914062506" />
+        <entry key="app/src/main/res/layout/fragment_generation.xml" value="0.2582004270691803" />
+        <entry key="app/src/main/res/layout/fragment_generation1.xml" value="0.20625" />
+        <entry key="app/src/main/res/layout/fragment_variation.xml" value="0.24233703613281254" />
+        <entry key="app/src/main/res/layout/guide_fragment_generation.xml" value="0.22905731201171883" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.20625" />
+        <entry key="app/src/main/res/layout/test1.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/url_test.xml" value="0.17239583333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
