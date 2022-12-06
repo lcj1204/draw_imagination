@@ -10,22 +10,26 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:tabMode="fixed">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1번 탭" />
+            android:icon="@drawable/ic_gener"
+            android:text="생성"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2번 탭" />
+            android:icon="@drawable/ic_vari"
+            android:text="변환" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3번 탭" />
+            android:icon="@drawable/ic_gall"
+            android:text="갤러리" />
 
     </com.google.android.material.tabs.TabLayout>
 
