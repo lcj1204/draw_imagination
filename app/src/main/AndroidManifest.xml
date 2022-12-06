@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.draw_imagination">
 
-    <!-- 파일내 웹접근이 가능하도록 퍼미션 추가 -->
+    <!--    파일내 웹접근이 가능하도록 퍼미션 추가   -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!--    오디오 사용 권한   -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
+    <!--
+    5.0 버전 파일 업로드 퍼미션
+    https://42kchoi.tistory.com/384
+    -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="18"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:allowBackup="true"
