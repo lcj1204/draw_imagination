@@ -29,9 +29,9 @@ import java.io.InputStream;
 public class Fragment_variation extends Fragment {
 
     Button btn_uploadImage;
-    Button btn_gen_make;
-    Button btn_gen_download;
-    Button btn_gen_guide;
+    Button btn_val_make;
+    Button btn_val_download;
+    Button btn_val_guide;
 
     ImageView result_image;
 
@@ -54,16 +54,17 @@ public class Fragment_variation extends Fragment {
         });
 
         //만들기 버튼
-        String imageStr = "https://cdn.openai.com/dall-e-2/demos/text2im/astronaut/horse/photo/0.jpg";
-
-        GlideApp
-                .with(Fragment_variation.this)
-                .load(imageStr)
-                .into(result_image);
+//        btn_val_make = (Button) view.findViewById(R.id.btn_val_make);
+//        String imageStr = "https://cdn.openai.com/dall-e-2/demos/text2im/astronaut/horse/photo/0.jpg";
+//
+//        GlideApp
+//                .with(Fragment_variation.this)
+//                .load(imageStr)
+//                .into(result_image);
 
         //이미지 저장 버튼
-        btn_gen_download = (Button) view.findViewById(R.id.btn_gen_download);
-        btn_gen_download.setOnClickListener(new View.OnClickListener() {
+        btn_val_download = (Button) view.findViewById(R.id.btn_val_download);
+        btn_val_download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
@@ -77,6 +78,7 @@ public class Fragment_variation extends Fragment {
         });
 
         //가이드 버튼
+        btn_val_guide = (Button) view.findViewById(R.id.btn_val_guide);
 
         return view;
     }
