@@ -16,6 +16,7 @@
         android:layout_marginRight="20dp"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/gen_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="생성하고 싶은 이미지를 입력하세요."
