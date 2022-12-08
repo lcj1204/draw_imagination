@@ -1,7 +1,5 @@
 package com.example.draw_imagination;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,19 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.draw_imagination.gallery.ImageActivity;
 import com.example.draw_imagination.gallery.ImageGridAdapter;
 
 public class Fragment_gallery extends Fragment {
-
-//    ImageView gal_imageView;
 
     // res ID
     private int[] imgIDs = new int[] {
