@@ -124,6 +124,4 @@ public class VoiceRecognition extends Activity {
         sRecog.setRecognitionListener(listener);    // 리스너 할당
         sRecog.startListening(intent);  // 듣기
     }
-
-
 }
