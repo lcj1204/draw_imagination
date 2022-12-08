@@ -2,26 +2,36 @@ package com.example.draw_imagination;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 //import android.support.design.widget.TabLayout;
 
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    Fragment fragment_generation, fragment_variation, fragment_gallery;
+    Fragment[] fragments = new Fragment[3];
+    Fragment[] newFragments = {
+            new Fragment_generation(),
+            new Fragment_variation(),
+            new Fragment_gallery()
+    };
+
+    private FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fragment_generation = new Fragment_generation();
-//        fragment_variation = new Fragment_variation();
-//        fragment_gallery = new Fragment_gallery();
+        fragments[0] = new Fragment_generation();
 
-        getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment_generation).commit();
+        fragmentManager.beginTransaction()
+                .replace(R.id.frame, fragments[0])
+                .commit();
 
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
 
@@ -31,39 +41,26 @@ public class MainActivity extends AppCompatActivity {
 
                 int position = tab.getPosition();
 
-                /*Fragment selected = null;
-                if(position == 0){
-                    selected = fragment_generation;
-                }else if (position == 1){
-                    selected = fragment_variation;
-                }else if (position == 2){
-                    selected = fragment_gallery;
-                }
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, selected).commit();*/
-                if(position == 0){
-                    if (fragment_generation == null) {
-                        fragment_generation = new Fragment_generation();
-                        getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment_generation).commit();
+                for (int i = 0; i < 3; i++) {
+                    if (i == position) {
+                        if (fragments[position] == null) {
+                            fragments[position] = newFragments[position];
+                            fragmentManager
+                                    .beginTransaction()
+                                    .add(R.id.frame, fragments[position])
+                                    .commit();
+                        }
+                        else fragmentManager
+                                .beginTransaction()
+                                .show(fragments[position])
+                                .commit();
                     }
-                    if (fragment_generation != null) getSupportFragmentManager().beginTransaction().show(fragment_generation).commit();
-                    if (fragment_variation != null) getSupportFragmentManager().beginTransaction().hide(fragment_variation).commit();
-                    if (fragment_gallery != null) getSupportFragmentManager().beginTransaction().hide(fragment_gallery).commit();
-                }else if (position == 1){
-                    if (fragment_variation == null) {
-                        fragment_variation = new Fragment_variation();
-                        getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment_variation).commit();
+                    else {
+                        if (fragments[i] != null) fragmentManager
+                                .beginTransaction()
+                                .hide(fragments[i])
+                                .commit();
                     }
-                    if (fragment_generation != null) getSupportFragmentManager().beginTransaction().hide(fragment_generation).commit();
-                    if (fragment_variation != null) getSupportFragmentManager().beginTransaction().show(fragment_variation).commit();
-                    if (fragment_gallery != null) getSupportFragmentManager().beginTransaction().hide(fragment_gallery).commit();
-                }else if (position == 2){
-                    if (fragment_gallery == null) {
-                        fragment_gallery = new Fragment_gallery();
-                        getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment_gallery).commit();
-                    }
-                    if (fragment_generation != null) getSupportFragmentManager().beginTransaction().hide(fragment_generation).commit();
-                    if (fragment_variation != null) getSupportFragmentManager().beginTransaction().hide(fragment_variation).commit();
-                    if (fragment_gallery != null) getSupportFragmentManager().beginTransaction().show(fragment_gallery).commit();
                 }
             }
 
