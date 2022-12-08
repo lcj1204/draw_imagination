@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 
-public class Upload_url extends AppCompatActivity {
+public class Url2Image extends AppCompatActivity {
 
     //url 이미지 test
     // https://wonpaper.tistory.com/207
@@ -21,7 +21,10 @@ public class Upload_url extends AppCompatActivity {
         imageView1 = findViewById(R.id.imageView1);
 
         String imageStr = "https://cdn.openai.com/dall-e-2/demos/text2im/astronaut/horse/photo/0.jpg";
-        Glide.with(this).load(imageStr).into(imageView1);
+        Glide
+                .with(this)
+                .load(imageStr)
+                .into(imageView1);
 
     }
 }
