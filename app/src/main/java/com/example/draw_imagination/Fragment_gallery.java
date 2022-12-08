@@ -30,15 +30,27 @@ public class Fragment_gallery extends Fragment {
     };
 
     private String[] texts = new String[] {
-            "음...",
-            "음...",
-            "음...",
-            "음...",
-            "음...",
-            "음...",
-            "음...",
-            "음...",
-            "음...",
+            "an illustration of a baby daikon radish",
+            "an armchair in the shape of an avocado.",
+            "a small red block sitting on",
+            "a capybara sitting in a field at sunrise",
+            "a capybara sitting in a field at sunrise",
+            "a capybara sitting in a field at sunrise",
+            "a photo of alamo square, san francisco, from a street at night",
+            "a photo of the food of china",
+            "a snail made of harp",
+    };
+
+    private String[] styles = new String[] {
+            " X ",
+            " X ",
+            " X ",
+            "painting",
+            "pop art",
+            "pencil sketch",
+            " X ",
+            " X ",
+            " X ",
     };
 
     @Nullable
@@ -48,18 +60,10 @@ public class Fragment_gallery extends Fragment {
 
         // 그리드 이미지
         GridView gridView = (GridView) view.findViewById(R.id.gridView);
-        ImageGridAdapter imageGridAdapter = new ImageGridAdapter(getActivity(), imgIDs, texts);
+        ImageGridAdapter imageGridAdapter = new ImageGridAdapter(getActivity(), imgIDs, texts, styles);
         gridView.setAdapter(imageGridAdapter);
 
         return view;
-    }
-
-    private void setImage(ImageView imageView) {
-        Intent receivedIntent = getActivity().getIntent();
-
-        // intent로 읽은 이미지 ID -> ImageView의 리로스로 설정
-        int imgID = (Integer) receivedIntent.getExtras().get("image ID");
-        imageView.setImageResource(imgID);
     }
 
 }

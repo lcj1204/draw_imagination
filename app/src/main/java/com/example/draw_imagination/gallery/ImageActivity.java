@@ -20,6 +20,7 @@ public class ImageActivity extends Activity {
     Button back;
     ImageView imageView;
     TextView textView;
+    TextView styleView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +29,10 @@ public class ImageActivity extends Activity {
 
         imageView = (ImageView) findViewById(R.id.gal_imageView);
         textView = (TextView) findViewById(R.id.gal_textView);
+        styleView = (TextView) findViewById(R.id.gal_styleView);
         setImage(imageView);
-        setText(textView);
+        setText(textView, "text ID");
+        setText(styleView, "style ID");
 
         back = (Button) findViewById(R.id.gal_back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -45,9 +48,16 @@ public class ImageActivity extends Activity {
             @Override
             public boolean onLongClick(View view) {
                 String text = textView.getText().toString();
-
                 createClipData(text);
+                return false;
+            }
+        });
 
+        styleView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                String text = styleView.getText().toString();
+                createClipData(text);
                 return false;
             }
         });
@@ -61,12 +71,12 @@ public class ImageActivity extends Activity {
         imageView.setImageResource(imgID);
     }
 
-    private void setText(TextView textView) {
+    private void setText(TextView textView, String ID) {
         Intent receivedIntent = getIntent();
 
         // intent로 읽은 이미지 ID -> ImageView의 리로스로 설정
-        String texts = (String) receivedIntent.getExtras().get("text ID");
-        textView.setText(texts);
+        String text = (String) receivedIntent.getExtras().get(ID);
+        textView.setText(text);
     }
 
     public void createClipData(String message){

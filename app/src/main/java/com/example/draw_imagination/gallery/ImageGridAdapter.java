@@ -17,11 +17,13 @@ public class ImageGridAdapter extends BaseAdapter {
     Context context = null;
     int [] imgIDs = null;
     String [] texts = null;
+    String [] styles = null;
 
-    public ImageGridAdapter(Context context, int[] imgID, String [] texts) {
+    public ImageGridAdapter(Context context, int[] imgID, String[] texts, String[] styles) {
         this.context = context;
         this.imgIDs = imgID;
         this.texts = texts;
+        this.styles = styles;
     }
 
     public int getCount() {
@@ -50,7 +52,7 @@ public class ImageGridAdapter extends BaseAdapter {
             imageView.setAdjustViewBounds(true);
             imageView.setImageBitmap(bp);
 
-            ImageClickListener imageViewClickListener = new ImageClickListener(context, imgIDs[position], texts[position]);
+            ImageClickListener imageViewClickListener = new ImageClickListener(context, imgIDs[position], texts[position], styles[position]);
             imageView.setOnClickListener(imageViewClickListener);
         }
         return imageView;
