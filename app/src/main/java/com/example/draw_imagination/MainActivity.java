@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 //import android.support.design.widget.TabLayout;
@@ -12,6 +13,9 @@ import android.util.Log;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
+
+//    Fragment_variation variation = new Fragment_variation();
+    private static Context context;
 
     Fragment[] fragments = new Fragment[3];
     Fragment[] newFragments = {
@@ -26,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MainActivity.context = getApplicationContext();
 
         fragments[0] = new Fragment_generation();
 
@@ -75,5 +81,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public static Context ApplicationContext(){
+        return MainActivity.context;
     }
 }
