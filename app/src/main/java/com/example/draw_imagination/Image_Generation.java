@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -22,7 +23,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Image_Generation extends AsyncTask<String, Void, String> {
+class Image_Generation extends AsyncTask<String, Void, String> {
+
+    // you may separate this or combined to caller class.
+    public interface AsyncResponse {
+        void processFinish(String output);
+    }
+
+    public AsyncResponse delegate = null;
+
+    public Image_Generation(AsyncResponse delegate){
+        this.delegate = delegate;
+    }
 
     @Override
     protected String doInBackground(String... strings) {
@@ -42,7 +54,6 @@ public class Image_Generation extends AsyncTask<String, Void, String> {
         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
 
         String responseBody = post(apiURL, requestHeaders, text);
-        //System.out.println("responseBody = " + responseBody);
 
         //JSON parsing
         JSONObject jObject = null;
@@ -87,6 +98,7 @@ public class Image_Generation extends AsyncTask<String, Void, String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         try {
             httpConn.setRequestMethod("POST");
         } catch (ProtocolException e) {
@@ -94,30 +106,25 @@ public class Image_Generation extends AsyncTask<String, Void, String> {
         }
 
         httpConn.setRequestProperty("Content-Type", "application/json");
-        httpConn.setRequestProperty("Authorization", "Bearer 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");
+        httpConn.setRequestProperty("Authorization", "Bearer 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");
 
         httpConn.setDoOutput(true);
-        OutputStreamWriter writer = null;
+        PrintWriter writer = null;
         try {
-            writer = new OutputStreamWriter(httpConn.getOutputStream());
+            writer = new PrintWriter(new OutputStreamWriter(httpConn.getOutputStream()));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try {
-            writer.write("{\n    \"prompt\": \""+ translatedText +"\",\n    \"n\": 1,\n    \"size\": \"1024x1024\"\n  }");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            writer.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        writer.println("{");
+        writer.println("\"prompt\": \"" + translatedText + "\",");
+        writer.println("\"n\": 1,");
+        writer.println("\"size\": \"1024x1024\"");
+        writer.println("}");
+        //writer.write("{\n    \"prompt\": \""+ translatedText +"\",\n    \"n\": 1,\n    \"size\": \"1024x1024\"\n  }");
+        writer.flush();
+        writer.close();
+
         try {
             httpConn.getOutputStream().close();
         } catch (IOException e) {
@@ -146,22 +153,23 @@ public class Image_Generation extends AsyncTask<String, Void, String> {
         JSONArray data = null;
         try {
             data = re.getJSONArray("data");
+            System.out.println(data);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         String result_url = "";
         try {
-            result_url = data.getJSONObject(0).getString("url");
+            JSONObject ss = data.getJSONObject(0);
+            result_url = ss.getString("url");
+            //result_url = data.getJSONObject(0).getString("url");
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        System.out.println(result_url);
+        //System.out.println(result_url);
 
-
-
-        return responseBody;
+        return result_url;
     }
 
 
@@ -237,7 +245,8 @@ public class Image_Generation extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         // 스레드 작업이 모두 끝난 후에 수행할 작업(메인 스레드)
-        myMethod(s);
+        delegate.processFinish(s);
+        //myMethod(s);
         super.onPostExecute(s);
     }
 

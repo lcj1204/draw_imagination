@@ -3,6 +3,7 @@ package com.example.draw_imagination;
 import android.content.Context;
 import android.os.Bundle;
 import android.speech.SpeechRecognizer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ import androidx.fragment.app.Fragment;
 import com.example.draw_imagination.voice.VoiceRecognition;
 
 
-public class Fragment_generation extends Fragment {
+public class Fragment_generation extends Fragment implements Image_Generation.AsyncResponse {
 
     EditText gen_editText;
     Button btn_gen_make;
@@ -37,18 +38,24 @@ public class Fragment_generation extends Fragment {
         View view = inflater.inflate(R.layout.fragment_generation, container, false);
 
         // 만들기 버튼
+        gen_editText = (EditText) view.findViewById(R.id.gen_editText);
         btn_gen_make = (Button) view.findViewById(R.id.btn_gen_make);
         result_image = (ImageView) view.findViewById(R.id.gen_image1);
         btn_gen_make.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 만들기 기능
-                String imageStr = "https://cdn.openai.com/dall-e-2/demos/text2im/astronaut/horse/photo/0.jpg";
+//                String imageStr = "https://cdn.openai.com/dall-e-2/demos/text2im/astronaut/horse/photo/0.jpg";
+//
+//                Image_Generation2 gen = new Image_Generation2();
+//                String s = "";
+//                s = String.valueOf(gen.execute("오늘 날씨는 맑음"));
+                String text = gen_editText.getText().toString();
+//                s = String.valueOf(gen.execute(text));
+//                System.out.println(s);
 
-                GlideApp
-                        .with(Fragment_generation.this)
-                        .load(imageStr)
-                        .into(result_image);
+                new Image_Generation(Fragment_generation.this).execute(text);
+
             }
         });
 
@@ -95,5 +102,17 @@ public class Fragment_generation extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void processFinish(String output) {
+//        System.out.println("url: " + output);
+        Log.i("return", "이미지 url : " + output);
+
+        GlideApp
+                .with(Fragment_generation.this)
+                .load(output)
+                .thumbnail(GlideApp.with(Fragment_generation.this).load(R.drawable.loading))
+                .into(result_image);
     }
 }
