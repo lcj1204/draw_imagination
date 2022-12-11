@@ -14,33 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="변경하고싶은 스타일을 입력하세요."
-            android:minHeight="48dp" />
-        <ImageButton
-            android:id="@+id/btn_translate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_translate"
-            android:backgroundTint="#FFFFFF"
-            android:minHeight="48dp" />
-        <ImageButton
-            android:id="@+id/btn_mic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_mic"
-            android:backgroundTint="#FFFFFF"
-            android:minHeight="48dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:orientation="horizontal"
         android:gravity="center_vertical">
         <Button
