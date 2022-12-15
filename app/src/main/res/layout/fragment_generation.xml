@@ -19,15 +19,10 @@
             android:id="@+id/gen_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="5"
             android:hint="생성하고 싶은 이미지를 입력하세요."
             android:minHeight="48dp" />
-        <ImageButton
-            android:id="@+id/btn_translate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_translate"
-            android:backgroundTint="#FFFFFF"
-            android:minHeight="48dp" />
+
         <ImageButton
             android:id="@+id/btn_mic"
             android:layout_width="wrap_content"
@@ -99,12 +94,5 @@
         android:layout_height="wrap_content"
         android:text="이미지 저장"
         android:layout_margin="10dp"/>
-    <Button
-        android:id="@+id/btn_gen_guide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginLeft="10dp"
-        android:text="가이드" />
 
 </LinearLayout>

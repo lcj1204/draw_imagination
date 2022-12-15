@@ -74,15 +74,6 @@ public class Fragment_generation extends Fragment implements Image_Generation.As
             }
         });
 
-        // 가이드 버튼
-        btn_gen_guide = (Button) view.findViewById(R.id.btn_gen_guide);
-        btn_gen_guide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         // 음성 인식
         btn_mic = (ImageButton) view.findViewById(R.id.btn_mic);
 

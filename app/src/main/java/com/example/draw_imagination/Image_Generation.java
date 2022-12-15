@@ -107,7 +107,7 @@ class Image_Generation extends AsyncTask<String, Void, String> {
 
         httpConn.setRequestProperty("Content-Type", "application/json");
 //        httpConn.setRequestProperty("Authorization", "Bearer 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");
-        httpConn.setRequestProperty("Authorization", "Bearer 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");
+        httpConn.setRequestProperty("Authorization", "Bearer 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");
 
         httpConn.setDoOutput(true);
         PrintWriter writer = null;
