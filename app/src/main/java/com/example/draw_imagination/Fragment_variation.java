@@ -101,8 +101,6 @@ public class Fragment_variation extends Fragment {
             }
         });
 
-        //가이드 버튼
-        btn_val_guide = (Button) view.findViewById(R.id.btn_val_guide);
 
         return view;
     }
