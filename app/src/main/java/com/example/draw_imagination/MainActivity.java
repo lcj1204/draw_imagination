@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 //import android.support.design.widget.TabLayout;
 
+import com.example.draw_imagination.voice.askPermissions;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 권한 요청
+        askPermissions ask = new askPermissions();
+        ask.PermissionSupport(this, this);
+        ask.requestPermissions();
 
         MainActivity.context = getApplicationContext();
 
