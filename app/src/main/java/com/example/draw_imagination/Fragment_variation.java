@@ -142,7 +142,7 @@ public class Fragment_variation extends Fragment {
 //                    String realPath = imagePath(imgUri);
 //                    Log.i("info", "절대 경로 : " + realPath);
                     text_uploadImage.setText(realPath);
-                    Toast.makeText(getActivity(), realPath,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "업로드 완료",Toast.LENGTH_SHORT).show();
 
                     /* image variation request start */
                     HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
