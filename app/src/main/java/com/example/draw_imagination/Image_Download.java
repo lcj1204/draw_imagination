@@ -21,7 +21,7 @@ public class Image_Download {
         String imgName = String.valueOf(time);
         String fileName = imgName + ".png";
         // 저장소 경로
-        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES + "/AppName");
+        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES + "/DI");
         Log.i("info", "저장 경로 : " + storageDir);
         // 폴더가 없으면 생성
         if (!storageDir.exists()) {
